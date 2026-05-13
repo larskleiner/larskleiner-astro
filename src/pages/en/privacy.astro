@@ -1,18 +1,20 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import Nav from '../../components/Nav.astro'
+import Header from '../../components/Header.astro'
 import Footer from '../../components/Footer.astro'
 import { useTranslations } from '../../i18n/translations'
+import { getRelativeLocaleUrl } from 'astro:i18n'
 
 const lang = Astro.currentLocale ?? 'de'
 const t = useTranslations(lang)
+const homeUrl = getRelativeLocaleUrl(lang, '/')
 ---
 
 <BaseLayout title={`Lars Kleiner – ${t.privacy}`} lang={lang} pagePath="/privacy">
-  <Nav lang={lang} />
-  <article lang="de">
-    <h2>Datenschutzerklärung</h2>
-
+  <Header lang={lang} />
+  <a href={homeUrl} class="back-link">{t.backLink}</a>
+  <h1 class="page-title">{t.privacy}</h1>
+  <div class="prose" lang="de">
     <p>Eine Nutzung der Internetseite von Lars Kleiner ist grundsätzlich ohne jede Angabe personenbezogener Daten möglich. Sofern eine betroffene Person besondere Services unseres Unternehmens über unsere Internetseite in Anspruch nehmen möchte, könnte jedoch eine Verarbeitung personenbezogener Daten erforderlich werden. Ist die Verarbeitung personenbezogener Daten erforderlich und besteht für eine solche Verarbeitung keine gesetzliche Grundlage, holen wir generell eine Einwilligung der betroffenen Person ein.</p>
 
     <p>Die Verarbeitung personenbezogener Daten, beispielsweise des Namens, der Anschrift, E-Mail-Adresse oder Telefonnummer einer betroffenen Person, erfolgt stets im Einklang mit der Datenschutz-Grundverordnung und in Übereinstimmung mit den für Lars Kleiner geltenden landesspezifischen Datenschutzbestimmungen. Mittels dieser Datenschutzerklärung möchten wir die Öffentlichkeit über Art, Umfang und Zweck der von uns erhobenen, genutzten und verarbeiteten personenbezogenen Daten informieren. Ferner werden betroffene Personen mittels dieser Datenschutzerklärung über die ihnen zustehenden Rechte aufgeklärt.</p>
@@ -148,6 +150,6 @@ const t = useTranslations(lang)
     <p>Wir verzichten auf eine automatische Entscheidungsfindung oder ein Profiling.</p>
 
     <p>Diese Datenschutzerklärung wurde durch den Datenschutzerklärungs-Generator der DGD Deutsche Gesellschaft für Datenschutz GmbH erstellt.</p>
-  </article>
+  </div>
   <Footer lang={lang} />
 </BaseLayout>
