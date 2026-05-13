@@ -12,10 +12,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.9",
     "@popperjs/core": "^2.11.8",
     "astro": "^6.3.1",
-    "bootstrap": "^5.3.8",
+    "bootstrap": "^5.3.8"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
     "typescript": "^6.0.3"
   }
 }

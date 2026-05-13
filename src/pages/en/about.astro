@@ -2,11 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
+import { useTranslations } from '../../i18n/translations'
 
 const lang = Astro.currentLocale ?? 'de'
+const t = useTranslations(lang)
 ---
 
-<BaseLayout title="Lars Kleiner – Impressum" lang={lang} pagePath="/about">
+<BaseLayout title={`Lars Kleiner – ${t.about}`} lang={lang} pagePath="/about">
   <Nav lang={lang} />
   <article>
     <div class="container-fluid">
