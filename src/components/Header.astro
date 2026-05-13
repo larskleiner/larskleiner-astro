@@ -1,0 +1,33 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { Image } from 'astro:assets'
+import { useTranslations } from '../i18n/translations'
+import profileImg from '../assets/img/larskleiner.png'
+
+interface Props {
+  lang: string
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+const altLocale = lang === 'de' ? 'en' : 'de'
+const altLocaleUrl = getRelativeLocaleUrl(altLocale, '/')
+---
+
+<header class="site-header">
+  <div class="header-identity">
+    <Image
+      src={profileImg}
+      format="webp"
+      width={52}
+      height={52}
+      alt="Lars Kleiner"
+      class="profile-img"
+    />
+    <div>
+      <div class="site-name">Lars Kleiner</div>
+      <div class="site-tagline">{t.tagline}</div>
+    </div>
+  </div>
+  <a href={altLocaleUrl} class="lang-switch">{altLocale.toUpperCase()}</a>
+</header>
