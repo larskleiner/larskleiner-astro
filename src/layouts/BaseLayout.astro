@@ -1,14 +1,19 @@
 ---
 import { getAbsoluteLocaleUrl } from 'astro:i18n'
 import '../styles/main.css'
+import { useTranslations } from '../i18n/translations'
 
 interface Props {
   title: string
   lang: string
   pagePath: string
+  description?: string
 }
 
-const { title, lang, pagePath } = Astro.props
+const { title, lang, pagePath, description: descriptionProp } = Astro.props
+const t = useTranslations(lang)
+const description = descriptionProp ?? t.description
+const canonicalUrl = getAbsoluteLocaleUrl(lang, pagePath)
 const deUrl = getAbsoluteLocaleUrl('de', pagePath)
 const enUrl = getAbsoluteLocaleUrl('en', pagePath)
 ---
@@ -19,9 +24,16 @@ const enUrl = getAbsoluteLocaleUrl('en', pagePath)
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <meta name="description" content="Lars Kleiner - Web developer, Drupal expert, cyclist and amateur photographer." />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang="de" href={deUrl} />
     <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href="https://www.larskleiner.de/de/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={lang === 'de' ? 'de_DE' : 'en_US'} />
   </head>
   <body>
     <slot />

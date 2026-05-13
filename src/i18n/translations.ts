@@ -8,6 +8,7 @@ const translations = {
     instagram: 'Meine persönlichen Lieblingsfotos. Eine ältere Auswahl gibt es auch noch auf ',
     about: 'Impressum',
     privacy: 'Datenschutzerklärung',
+    description: 'Hallo, ich bin Lars Kleiner. Webentwickler, Drupal-Experte, Radfahrer und Hobbyfotograf.',
   },
   en: {
     hello: "Hello, I'm Lars Kleiner. Web developer, Drupal expert, cyclist and amateur photographer.",
@@ -18,6 +19,7 @@ const translations = {
     instagram: 'A selection of my favourite pictures. An older portfolio is also available on ',
     about: 'About',
     privacy: 'Privacy policy',
+    description: "Hello, I'm Lars Kleiner. Web developer, Drupal expert, cyclist and amateur photographer.",
   },
 } as const
 
