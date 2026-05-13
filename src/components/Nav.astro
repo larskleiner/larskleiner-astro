@@ -1,0 +1,16 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n'
+
+interface Props {
+  lang: string
+}
+
+const { lang } = Astro.props
+const altLocale = lang === 'de' ? 'en' : 'de'
+const altLocaleName = lang === 'de' ? 'English' : 'Deutsch'
+const altLocaleUrl = getRelativeLocaleUrl(altLocale, '/')
+---
+
+<nav>
+  <a class="btn btn-outline-secondary mb-3" href={altLocaleUrl}>{altLocaleName}</a>
+</nav>
