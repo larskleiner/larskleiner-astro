@@ -1,0 +1,31 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { useTranslations } from '../i18n/translations'
+
+interface Props {
+  lang: string
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+const homeUrl = getRelativeLocaleUrl(lang, '/')
+const aboutUrl = getRelativeLocaleUrl(lang, '/about')
+const privacyUrl = getRelativeLocaleUrl(lang, '/privacy')
+---
+
+<hr class="p-3" />
+<footer>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col text-center">
+        &copy; <a href={homeUrl}>Lars Kleiner</a> {new Date().getFullYear()}
+      </div>
+      <div class="col text-center">
+        <a href={aboutUrl}>{t.about}</a>
+      </div>
+      <div class="col text-center">
+        <a href={privacyUrl}>{t.privacy}</a>
+      </div>
+    </div>
+  </div>
+</footer>
