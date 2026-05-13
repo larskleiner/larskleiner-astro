@@ -1,6 +1,5 @@
 ---
 import { getAbsoluteLocaleUrl } from 'astro:i18n'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/main.css'
 
 interface Props {
@@ -26,8 +25,5 @@ const enUrl = getAbsoluteLocaleUrl('en', pagePath)
   </head>
   <body>
     <slot />
-    <script>
-      import 'bootstrap/dist/js/bootstrap.bundle.min.js'
-    </script>
   </body>
 </html>
