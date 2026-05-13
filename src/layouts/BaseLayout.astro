@@ -1,0 +1,36 @@
+---
+import { getAbsoluteLocaleUrl } from 'astro:i18n'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '../styles/main.css'
+
+interface Props {
+  title: string
+  lang: string
+  pagePath: string
+}
+
+const { title, lang, pagePath } = Astro.props
+const deUrl = getAbsoluteLocaleUrl('de', pagePath)
+const enUrl = getAbsoluteLocaleUrl('en', pagePath)
+---
+
+<!doctype html>
+<html lang={lang} dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content="Lars Kleiner - Web developer, Drupal expert, cyclist and amateur photographer." />
+    <link rel="alternate" hreflang="de" href={deUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <slot />
+    <script>
+      import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+    </script>
+  </body>
+</html>
