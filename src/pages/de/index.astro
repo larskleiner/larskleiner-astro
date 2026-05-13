@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+import { useTranslations } from '../../i18n/translations'
+import { Image } from 'astro:assets'
+import larskleiner from '../../assets/img/larskleiner.png'
+import linkedin from '../../assets/img/linkedin.png'
+import drupal from '../../assets/img/drupal.png'
+import github from '../../assets/img/github.png'
+import strava from '../../assets/img/strava.png'
+import instagram from '../../assets/img/instagram.png'
+
+const lang = Astro.currentLocale ?? 'de'
+const t = useTranslations(lang)
+---
+
+<BaseLayout title="Lars Kleiner" lang={lang} pagePath="/">
+  <Nav lang={lang} />
+  <article class="home pb-5">
+    <div class="container-fluid">
+      <div class="row larskleiner">
+        <div class="col-md-1 d-flex flex-column">
+          <Image src={larskleiner} format="webp" width={55} height={55} class="float-md-end" alt="Lars Kleiner" />
+        </div>
+        <div class="col-11">
+          {t.hello}
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-1 d-flex flex-column">
+          <a href="https://www.linkedin.com/in/larskleiner" class="float-md-end">
+            <Image src={linkedin} format="webp" width={55} height={47} alt="linkedin" />
+          </a>
+        </div>
+        <div class="col-11">
+          {t.linkedin}<a href="https://www.xing.com/profile/Lars_Kleiner">Xing</a>.
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-1 d-flex flex-column">
+          <a href="https://www.drupal.org/u/larskleiner" class="float-md-end">
+            <Image src={drupal} format="webp" width={55} height={72} alt="drupal" />
+          </a>
+        </div>
+        <div class="col-11">
+          {t.drupal}
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-1 d-flex flex-column">
+          <a href="https://github.com/larskleiner" class="float-md-end">
+            <Image src={github} format="webp" width={55} height={55} alt="github" />
+          </a>
+        </div>
+        <div class="col-11">
+          {t.github}
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-1 d-flex flex-column">
+          <a href="https://www.strava.com/athletes/2479560" class="float-md-end">
+            <Image src={strava} format="webp" width={55} height={55} alt="strava" />
+          </a>
+        </div>
+        <div class="col-11">
+          {t.strava}
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-1 d-flex flex-column">
+          <a href="https://www.instagram.com/larskleiner/" class="float-md-end">
+            <Image src={instagram} format="webp" width={55} height={55} alt="instagram" />
+          </a>
+        </div>
+        <div class="col-11">
+          {t.instagram}<a href="https://www.flickr.com/photos/larskleiner/">Flickr</a>.
+        </div>
+      </div>
+    </div>
+  </article>
+  <Footer lang={lang} />
+</BaseLayout>
