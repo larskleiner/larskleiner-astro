@@ -1,27 +1,27 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import Nav from '../../components/Nav.astro'
+import Header from '../../components/Header.astro'
 import Footer from '../../components/Footer.astro'
 import { useTranslations } from '../../i18n/translations'
+import { getRelativeLocaleUrl } from 'astro:i18n'
 
 const lang = Astro.currentLocale ?? 'de'
 const t = useTranslations(lang)
+const homeUrl = getRelativeLocaleUrl(lang, '/')
 ---
 
 <BaseLayout title={`Lars Kleiner – ${t.about}`} lang={lang} pagePath="/about">
-  <Nav lang={lang} />
-  <article lang="de">
-    <div class="container-fluid">
-      <div class="row">
-        <h2>Angaben gemäß § 5 Telemediengesetz</h2>
-        Lars Kleiner<br />
-        Bahrenfelder Steindamm 109c<br />
-        22761 Hamburg<br />
-        Telefon: 01737798303<br />
-        E-Mail: hello@larskleiner.de<br />
-        Umsatzsteuer ID: DE280194949<br />
-      </div>
-    </div>
-  </article>
+  <Header lang={lang} />
+  <a href={homeUrl} class="back-link">{t.backLink}</a>
+  <h1 class="page-title">{t.about}</h1>
+  <div class="contact-card" lang="de">
+    <span class="contact-label">Angaben gemäß § 5 Telemediengesetz</span>
+    Lars Kleiner<br />
+    Bahrenfelder Steindamm 109c<br />
+    22761 Hamburg<br />
+    Telefon: 01737798303<br />
+    E-Mail: hello@larskleiner.de<br />
+    Umsatzsteuer ID: DE280194949
+  </div>
   <Footer lang={lang} />
 </BaseLayout>
