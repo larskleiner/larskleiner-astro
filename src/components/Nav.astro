@@ -11,6 +11,6 @@ const altLocaleName = lang === 'de' ? 'English' : 'Deutsch'
 const altLocaleUrl = getRelativeLocaleUrl(altLocale, '/')
 ---
 
-<nav>
+<nav aria-label="Language switcher">
   <a class="btn btn-outline-secondary mb-3" href={altLocaleUrl}>{altLocaleName}</a>
 </nav>
