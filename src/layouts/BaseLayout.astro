@@ -38,7 +38,9 @@ const enUrl = getAbsoluteLocaleUrl('en', pagePath)
   <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
     <main id="main-content">
-      <slot />
+      <div class="page-content">
+        <slot />
+      </div>
     </main>
   </body>
 </html>

@@ -13,19 +13,8 @@ const aboutUrl = getRelativeLocaleUrl(lang, '/about')
 const privacyUrl = getRelativeLocaleUrl(lang, '/privacy')
 ---
 
-<hr class="p-3" />
 <footer>
-  <div class="container-fluid">
-    <div class="row justify-content-center">
-      <div class="col text-center">
-        &copy; <a href={homeUrl}>Lars Kleiner</a> {new Date().getFullYear()}
-      </div>
-      <div class="col text-center">
-        <a href={aboutUrl}>{t.about}</a>
-      </div>
-      <div class="col text-center">
-        <a href={privacyUrl}>{t.privacy}</a>
-      </div>
-    </div>
-  </div>
+  <span>&copy; <a href={homeUrl}>Lars Kleiner</a> {new Date().getFullYear()}</span>
+  <a href={aboutUrl}>{t.about}</a>
+  <a href={privacyUrl}>{t.privacy}</a>
 </footer>
