@@ -171,3 +171,21 @@ footer {
   background-color: #6c757d;
   border-color: #6c757d;
 }
+
+/* Skip-to-content */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  border: 1px solid #343a40;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  color: #343a40;
+}
+
+.skip-link:focus {
+  left: 1rem;
+}

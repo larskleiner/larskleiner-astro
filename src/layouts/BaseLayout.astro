@@ -36,6 +36,9 @@ const enUrl = getAbsoluteLocaleUrl('en', pagePath)
     <meta property="og:locale" content={lang === 'de' ? 'de_DE' : 'en_US'} />
   </head>
   <body>
-    <slot />
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <main id="main-content">
+      <slot />
+    </main>
   </body>
 </html>
