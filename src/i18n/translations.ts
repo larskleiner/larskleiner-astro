@@ -10,6 +10,7 @@ const translations = {
     githubSub: 'Open source',
     stravaSub: 'Aktivitäten',
     instagramSub: 'Lieblingsfotos',
+    flickrSub: 'Älteres Portfolio',
   },
   en: {
     about: 'About',
@@ -22,6 +23,7 @@ const translations = {
     githubSub: 'Open source',
     stravaSub: 'Activities',
     instagramSub: 'Favourite photos',
+    flickrSub: 'Older portfolio',
   },
 } as const
 
