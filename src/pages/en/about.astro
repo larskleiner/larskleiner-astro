@@ -1,17 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import Header from '../../components/Header.astro'
 import Footer from '../../components/Footer.astro'
 import { useTranslations } from '../../i18n/translations'
 import { getRelativeLocaleUrl } from 'astro:i18n'
 
-const lang = Astro.currentLocale ?? 'de'
+const lang = Astro.currentLocale ?? 'en'
 const t = useTranslations(lang)
 const homeUrl = getRelativeLocaleUrl(lang, '/')
 ---
 
 <BaseLayout title={`Lars Kleiner – ${t.about}`} lang={lang} pagePath="/about">
-  <Header lang={lang} />
   <a href={homeUrl} class="back-link">{t.backLink}</a>
   <h1 class="page-title">{t.about}</h1>
   <div class="contact-card" lang="de">

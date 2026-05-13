@@ -6,6 +6,17 @@
   font-display: swap;
 }
 
+/* ── Reset ──────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
 /* ── Layout ─────────────────────────────────── */
 
 .page-content {
@@ -135,6 +146,10 @@
   color: #aaa;
   display: block;
   margin-top: 2px;
+}
+
+.cards-grid > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
 }
 
 /* ── Inner pages ────────────────────────────── */

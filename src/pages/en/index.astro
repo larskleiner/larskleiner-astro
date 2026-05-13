@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import Header from '../../components/Header.astro'
 import Footer from '../../components/Footer.astro'
 import { useTranslations } from '../../i18n/translations'
 import { Image } from 'astro:assets'
@@ -15,7 +14,6 @@ const t = useTranslations(lang)
 ---
 
 <BaseLayout title="Lars Kleiner" lang={lang} pagePath="/">
-  <Header lang={lang} />
   <div class="cards-grid">
     <a href="https://www.linkedin.com/in/larskleiner" class="card">
       <div class="card-icon-wrap" style="background: #e8f0fb;">

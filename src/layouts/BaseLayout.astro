@@ -2,6 +2,7 @@
 import { getAbsoluteLocaleUrl } from 'astro:i18n'
 import '../styles/main.css'
 import { useTranslations } from '../i18n/translations'
+import Header from '../components/Header.astro'
 
 interface Props {
   title: string
@@ -37,10 +38,11 @@ const enUrl = getAbsoluteLocaleUrl('en', pagePath)
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
-    <main id="main-content">
-      <div class="page-content">
+    <div class="page-content">
+      <Header lang={lang} />
+      <main id="main-content">
         <slot />
-      </div>
-    </main>
+      </main>
+    </div>
   </body>
 </html>
